@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>My Website</h1>
+    <nav>
+        <button onclick="location.href='index.html'" >Home</button>
+        <button onclick="location.href='about.html'">About</button>
+        <button onclick="location.href='resume.html'">Resume</button>
+        <button onclick="location.href='portfolio.html'" class="active">Portfolio</button>
+        <button onclick="location.href='blog.html'">Blog</button>
+        <button onclick="location.href='contact.html'">Contact</button>
+    </nav>
+</header>
+
+
+<main>
+    <section class="project-details">
+        <h2>MY PART TIME JOB</h2>
+        <p>While I was still pursuing my studies, I took the initiative to earn some extra income by working part-time on weekends. This experience not only helped me manage my finances but also taught me valuable skills such as time management, responsibility, and effective communication with colleagues and customers. Balancing work and study strengthened my discipline and prepared me for future professional challenges.</p>
+
+        <div class="project-gallery">
+            <img class="pop-img" src="image/parttime1.jpg" alt="Project Image 1">
+            <img class="pop-img" src="image/parttime2.jpg" alt="Project Image 2">
+            <img class="pop-img" src="image/parttime3.jpg" alt="Project Image 3">
+        </div>
+
+        <button onclick="location.href='portfolio.html'">Back to Portfolio</button>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Nuratikah Safia</p>
+</footer>
+
+<!-- Image Pop-up Modal -->
+<div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const span = document.getElementsByClassName("close")[0];
+    const images = document.querySelectorAll(".pop-img");
+
+    images.forEach(img => {
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+    });
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if(event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>My Website</h1>
+    <nav>
+        <button onclick="location.href='index.html'" >Home</button>
+        <button onclick="location.href='about.html'">About</button>
+        <button onclick="location.href='resume.html'">Resume</button>
+        <button onclick="location.href='portfolio.html'" class="active ">Portfolio</button>
+        <button onclick="location.href='blog.html'">Blog</button>
+        <button onclick="location.href='contact.html'">Contact</button>
+    </nav>
+</header>
+
+
+<main>
+    <section class="project-details">
+        <h2>I'VE GRADUATED!</h2>
+        <p>After spending nearly two years completing my Diploma at UiTM Rembau, I proudly graduated at UiTM Shah Alam. This milestone marked the culmination of my dedicated studies and efforts, and it was a memorable moment celebrating the knowledge, skills, and experiences I gained throughout my diploma journey.</p>
+
+        <div class="project-gallery">
+            <img class="pop-img" src="image/grad1.jpg" alt="Project Image 1">
+            <img class="pop-img" src="image/grad2.jpg" alt="Project Image 2">
+            <img class="pop-img" src="image/grad4.jpg" alt="Project Image 3">
+        </div>
+
+        <button onclick="location.href='portfolio.html'">Back to Portfolio</button>
+    </section>
+</main>
+
+<footer>
+    <p>© 2025 Nuratikah Safia</p>
+</footer>
+
+<!-- Image Pop-up Modal -->
+<div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const span = document.getElementsByClassName("close")[0];
+    const images = document.querySelectorAll(".pop-img");
+
+    images.forEach(img => {
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+    });
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if(event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
