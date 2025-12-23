@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Nuratikah Safia</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Contact Section ===== */
+    .contact-section {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: #f3ebe0;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .contact-section h2 {
+      color: #8b5e3c;
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    .contact-section p {
+      color: #4b3b2a;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid #d9b48f;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .contact-form button {
+      padding: 12px 25px;
+      border-radius: 10px;
+      border: none;
+      background-color: #d9b48f;
+      color: #4b3b2a;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #c08b5f;
+      color: #fff;
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    /* Success message */
+    #successMessage {
+      display: none;
+      background-color: #d9f2d9;
+      color: #256029;
+      border: 1px solid #a3d9a5;
+      padding: 12px 20px;
+      border-radius: 10px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    /* Social links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 1.2rem;
+      margin-top: 25px;
+    }
+
+    .social-links a {
+      color: #4b3b2a;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #c08b5f;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        margin: 30px 15px;
+        padding: 30px;
+      }
+
+      .social-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Website</h1>
+    <nav>
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='about.html'">About</button>
+      <button onclick="location.href='resume.html'">Resume</button>
+      <button onclick="location.href='portfolio.html'">Portfolio</button>
+      <button onclick="location.href='blog.html'">Blog</button>
+      <button onclick="location.href='contact.html'" class="active">Contact</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-section">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out! Send me a message or connect on social media.</p>
+
+      <form class="contact-form" id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div id="successMessage">✅ Your message has been sent successfully!</div>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Nuratikah Safia. All Right Reserved.</p>
+  </footer>
+
+  <script>
+    const contactForm = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
+
+    contactForm.addEventListener("submit", function(e) {
+      e.preventDefault(); // prevent page reload
+      successMessage.style.display = "block"; // show success message
+      contactForm.reset(); // reset form fields
+
+      // Optional: hide message after 5 seconds
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 5000);
+    });
+  </script>
+  <!-- Universal Image Modal -->
+<div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const span = document.getElementsByClassName("close")[0];
+
+// Select all images on the page
+const images = document.querySelectorAll("img");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+    });
+});
+
+// Close modal on × click
+span.onclick = () => { modal.style.display = "none"; };
+
+// Close modal if clicking outside image
+window.onclick = (event) => {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+</script>
+
+
+</body>
+</html>
+
